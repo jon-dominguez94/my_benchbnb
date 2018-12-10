@@ -13,7 +13,7 @@ const mdtp = dispatch => {
   });
 };
 
-export const connect(
+export default connect(
   mstp,
   mdtp
 )(Greeting);
