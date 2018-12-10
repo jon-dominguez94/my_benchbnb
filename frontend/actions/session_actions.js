@@ -21,7 +21,7 @@ export const logout = () => dispatch => {
 
 export const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER,
-  action: {}
+  data: {}
 });
 
 export const signup = user => dispatch => {
