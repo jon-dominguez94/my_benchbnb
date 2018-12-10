@@ -3,9 +3,18 @@ class Api::SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
     if @user
       login(@user)
-      redirect_to user_url
+      render "api/users/show"
+    else
+      render json: ["Invalid credentials"], status: 401
+    end
   end
 
   def destroy
+    if logged_in?
+      logout
+      render "api/session/create"
+    else
+      render json: ["Nobody signed in"], status: 404
+    end
   end
 end
